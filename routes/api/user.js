@@ -1,5 +1,4 @@
 const express = require('express');
-const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
@@ -8,6 +7,8 @@ const config = require('config');
 
 const User = require('../../models/User')
 
+
+const router = express.Router();
 
 // @route GET api/users
 // @desc  Test route 
