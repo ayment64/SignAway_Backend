@@ -36,7 +36,7 @@ router.post('/', [
                     return res.status(400).json({ errors: errors.array() });
                 }
 
-                const { name, email, password } = req.body;
+                const { name, email, password, role } = req.body;
                 try {
                     // See if user exists
                     let user = await User.findOne({ email })
@@ -54,6 +54,7 @@ router.post('/', [
                         name,
                         email,
                         avatar,
+                        role,
                         password
                     })
                     // Encrypt password
