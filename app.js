@@ -1,12 +1,19 @@
 const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
+const cors = require('cors');
 
 // Connect Database
 connectDB();
 
 //Init Middelware
 app.use(express.json({ extended: false }))
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true
+    })
+);
 
 app.get('/', (req, res)=>{
     res.send('APT running');
