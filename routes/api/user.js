@@ -36,7 +36,7 @@ router.post('/', [
                     return res.status(400).json({ errors: errors.array() });
                 }
 
-                const { name, email, password, role } = req.body;
+                const { name, email, password, role,firebaseToken } = req.body;
                 try {
                     // See if user exists
                     let user = await User.findOne({ email })
@@ -55,7 +55,8 @@ router.post('/', [
                         email,
                         avatar,
                         role,
-                        password
+                        password,
+                        firebaseToken
                     })
                     // Encrypt password
                     const salt = await bcrypt.genSalt(10);
