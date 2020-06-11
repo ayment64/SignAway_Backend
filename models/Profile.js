@@ -43,6 +43,13 @@ const ProfileSchema = new mongoose.Schema({
     job: {
         type: String,
         required: true
+    },
+    authorization: {
+        type: String,
+        required: true
+    },
+    enabled: {
+        type: Boolean
     }
 })
 

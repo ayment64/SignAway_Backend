@@ -93,6 +93,7 @@ router.post('/client', [
                     throw err
                 } else {
                     res.json({
+                        id : user.id,
                         token
                     })
                 }
@@ -122,7 +123,7 @@ router.post('/admin', [
 
     const {
         email,
-        password
+        password,firebaseToken
     } = req.body;
     try {
         let user = await User.findOne({
@@ -135,7 +136,7 @@ router.post('/admin', [
                 }]
             })
         }
-
+      
         const isMatch = await bcrypt.compare(password, user.password);
 
         let role = "admin"
@@ -176,12 +177,14 @@ router.post('/admin', [
                 if (err) {
                     throw err
                 } else {
+                    User.findByIdAndUpdate(user._id,{firebaseToken: firebaseToken});
                     res.json({
-                        token
+                        statusCode:"200",
+                        token,
+
                     })
                 }
             })
-        // res.send('User registered')
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error')
