@@ -3,7 +3,6 @@ const express = require('express');
 const connectDB = require('./config/db')
 const app = express();
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 
@@ -37,6 +36,7 @@ app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/firebase/notification',require('./routes/api/notification'))
 app.use('/signature', require('./routes/api/signature'))
+app.use('/api/econtract', require('./routes/api/econtract'))
 
 const PORT = process.env.PORT || 5000 ;
 

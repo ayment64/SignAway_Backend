@@ -4,7 +4,6 @@ const { check, validationResult } = require("express-validator");
 const auth = require("../../middleware/auth");
 const Profile = require("../../models/Profile");
 const User = require("../../models/User");
-var CircularJSON = require('circular-json');
 
 // @route GET api/profile/me
 // @desc  Test route
