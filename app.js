@@ -37,6 +37,7 @@ app.use('/api/profile', require('./routes/api/profile'));
 app.use('/firebase/notification',require('./routes/api/notification'))
 app.use('/signature', require('./routes/api/signature'))
 app.use('/api/econtract', require('./routes/api/econtract'))
+app.use('/keras_server', require('./routes/middlepoints/keras_server'))
 
 const PORT = process.env.PORT || 5000 ;
 
